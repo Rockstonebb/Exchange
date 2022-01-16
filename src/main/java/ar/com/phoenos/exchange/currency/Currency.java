@@ -23,5 +23,46 @@ public class Currency {
         this.symbol = symbol;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAcronym() {
+        return acronym;
+    }
+
+    public void setAcronym(String acronym) {
+        this.acronym = acronym;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    @Override
+    public String toString() {
+        return "Currency{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", acronym='" + acronym + '\'' +
+                ", symbol='" + symbol + '\'' +
+                '}';
+    }
 
 }
