@@ -3,10 +3,13 @@ package ar.com.phoenos.exchange.bundle.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Implementacion de interfaz de servicio de usuario
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserJpaRepository repository;
+    private final UserJpaRepository repository;
 
     @Autowired
     public UserServiceImpl(UserJpaRepository repository) {
@@ -39,8 +42,12 @@ public class UserServiceImpl implements UserService {
         throw new Exception("Not implemented yet");
     }
 
+    /**
+     * Validacion para test
+     * @param user
+     * @throws UserException
+     */
     private void validateUser(User user) throws UserException {
-
         // JUST FOR TESTING
         if(user.getUsername().isBlank() || user.getUsername().isEmpty() || user.getUsername() == null ||
                 user.getDisplayName().isBlank() || user.getDisplayName().isEmpty() || user.getDisplayName() == null ||

@@ -1,5 +1,8 @@
 package ar.com.phoenos.exchange.bundle.user;
 
+/**
+ * Interfaz para el servicio de usuario
+ */
 public interface UserService {
 
     void createUser(User user) throws Exception;

@@ -26,12 +26,15 @@ public class UserApiController {
     }
 
     @PostMapping(value = "register",
-            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE},
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE}
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE}, // Recibe Json o Form del front
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE}  // Produce Json o Form como respuesta
     )
-    @Operation(summary = "Create user", description = "This can only be done by the logged in user.", tags = {"user"})
-    @ApiResponses(value = {@ApiResponse(description = "successful operation",
-            content = {@Content(mediaType = "application/json", schema = @Schema(implementation = UserSwagger.class))})})
+    @Operation(summary = "Create user", description = "This can only be done by the logged in user.", tags = {"user"}) //Descripción del endpoint
+    @ApiResponses(value = {@ApiResponse(description = "successful operation",   // Respuesta del endpoint
+            content = {@Content(mediaType = "application/json",                 //Tipo de respuesta
+                    schema = @Schema(implementation = UserSwagger.class)        // Clase Swagger para ejemplo
+            )}
+    )})
     public ResponseEntity<User> registerUser(@RequestBody User user) throws Exception {
         userService.createUser(user);
         return ResponseEntity.ok(user);
