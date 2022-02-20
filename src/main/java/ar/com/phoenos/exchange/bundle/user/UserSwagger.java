@@ -2,9 +2,6 @@ package ar.com.phoenos.exchange.bundle.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Data;
-
-import javax.persistence.Column;
 import java.time.LocalDate;
 
 public class UserSwagger {

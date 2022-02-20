@@ -15,8 +15,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(User user) throws Exception {
-        if (user != null)
-            repository.save(user);
+        validateUser(user);
+        repository.save(user);
     }
 
     @Override
@@ -37,5 +37,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public User searchUser(Object param) throws Exception {
         throw new Exception("Not implemented yet");
+    }
+
+    private void validateUser(User user) throws UserException {
+
+        // JUST FOR TESTING
+        if(user.getUsername().isBlank() || user.getUsername().isEmpty() || user.getUsername() == null ||
+                user.getDisplayName().isBlank() || user.getDisplayName().isEmpty() || user.getDisplayName() == null ||
+                user.getDisplaySurname().isBlank() || user.getDisplaySurname().isEmpty() || user.getDisplaySurname() == null ||
+                user.getEmail().isBlank() || user.getEmail().isEmpty() || user.getEmail() == null ){
+            throw new UserException("All fields must be filled");
+        }
     }
 }
