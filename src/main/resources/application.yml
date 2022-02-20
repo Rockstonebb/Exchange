@@ -1,22 +1,41 @@
 
 server:
   port: 8080
+#  servlet:
+#    context-path: /api/v1
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/exchange_default
+    driver-class-name: com.mysql.cj.jdbc.Driver #Driver
+    url: jdbc:mysql://localhost:3308/exchange_default #url and database for mysql
     username: root
     password: mysql
   jpa:
+    show-sql: true
     hibernate:
-      ddl-auto : none
+      ddl-auto : update
       generate-ddl: true
     properties:
       hibernate:
+        format_sql: true
         dialect: org.hibernate.dialect.MySQL57InnoDBDialect
-  sql:
-    init:
-#      Ubicacion de scripts sql
-      data-locations: classpath:db/migration/*.sql
-#     Modo de inicializacion de base de datos (always, embedded, never)
-      mode: always
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+#  sql:
+#    init:
+##      Ubicacion de scripts sql
+#      data-locations: classpath:db/migration/*.sql
+##     Modo de inicializacion de base de datos (always, embedded, never)
+#      mode: always
+logging:
+  level:
+    web: debug
+
+
+
+
